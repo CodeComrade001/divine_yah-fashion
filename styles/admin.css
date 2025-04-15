@@ -1,0 +1,233 @@
+/* @layer base {
+  :root {
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+} */
+
+#admin_container {
+  height: 100%;
+  width: 100%;
+  /* position: absolute; */
+  display: grid;
+  grid-template-rows: 5% 95%;
+  grid-template-columns: 15% 85%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#admin_container > #admin_header {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1742759;
+  background-color: white;
+}
+
+#admin_container #logo {
+  margin-left: 5%;
+  height: 100%;
+  width: fit-content;
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+
+#admin_container #logo > img {
+  height: 100%;
+}
+
+#admin_container #text3d {
+  text-transform: uppercase;
+  font-family: verdana;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #60290659;
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191,
+    1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191,
+    1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.4),
+    1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+    1px 30px 60px rgba(16, 16, 16, 0.4);
+  margin: 0;
+  height: fit-content;
+}
+
+#admin_container #Admin_widget {
+  margin-right: 5%;
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: inherit;
+}
+
+#admin_container .admin_widget_icon {
+  height: 40px;
+  background-color: inherit;
+  width: 50px;
+  border: none;
+}
+
+#admin_container .admin_widget_icon > svg {
+  height: 25px;
+  width: 25px;
+}
+
+#admin_container .admin_widget_icon:nth-child(1) {
+  height: 30px;
+  width: fit-content;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #f1742759;
+  border-radius: 50%;
+}
+
+#admin_container .admin_widget_icon > img {
+  height: 40px;
+  width: auto;
+  border-radius: 50%;
+}
+
+#admin_container #side_bar {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+}
+
+#admin_container #side_bar_items {
+  height: 100%;
+  width: 100%;
+  /* overflow: auto; */
+  display: flex;
+  gap: 5px;
+  padding-top: 10px;
+  border-right: 1px solid #f1742759;
+  border-bottom: 1px solid #f1742759;
+  flex-direction: column;
+}
+
+#admin_container #side_bar_collapse {
+  height: 5%;
+  width: 100%;
+  border-right: 1px solid #f1742759;
+  border-bottom: 1px solid #f1742759;
+}
+
+#admin_container #side_bar_collapse > button {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+#admin_container #side_bar_collapse > button > i {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#admin_container #side_bar_collapse > button > span {
+  width: 90%;
+  height: fit-content;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+#admin_container #side_bar_collapse > button > i > svg {
+  height: 30px;
+  width: 30px;
+}
+
+/* #admin_container #side_bar_items > nav {
+  display: flex;
+  gap: 5px;
+  padding: 50px 5px;
+  flex-direction: column;
+} */
+
+#admin_container .admin_button_grouping {
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  margin: 0px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 1.4em;
+  -webkit-user-select: none;
+  user-select: none;
+  text-align: left;
+  touch-action: manipulation;
+  position: relative;
+  border: 3px ridge #f1742759;
+  outline: none;
+  background-color: transparent;
+  transition: 1s;
+  font-weight: bold;
+}
+
+#admin_container #active_admin_button {
+  box-shadow: inset 0px 0px 25px #f1742759;
+}
+
+#admin_container #active_admin_button::before,
+#admin_container #active_admin_button::after {
+  transform: scale(0);
+}
+
+#admin_container .admin_button_grouping::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 3%;
+  width: 95%;
+  height: 30%;
+  background-color: white;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+#admin_container .admin_button_grouping::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 90%;
+  left: 3%;
+  width: 95%;
+  height: 30%;
+  background-color: white;
+  transition: 0.5s;
+}
+
+#admin_container .admin_button_grouping:hover::before,
+#admin_container .admin_button_grouping:hover::after {
+  transform: scale(0);
+}
+
+#admin_container .admin_button_grouping:hover {
+  box-shadow: inset 0px 0px 25px #f1742759;
+}
