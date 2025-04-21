@@ -1,16 +1,16 @@
-#images_component {
+#video_component {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
   background-color: whitesmoke;
+  gap: 10px;
 }
 
-#images_component > * {
+#video_component > * {
   margin: 10px;
 }
 
-#images_component #Viewed_clothes_graph {
+#video_component #Viewed_clothes_graph {
   grid-row: 1 / 3;
   grid-column: 1 / 3;
   background-color: white;
@@ -20,7 +20,7 @@
   gap: 5px;
 }
 
-#images_component #Viewed_clothes_graph > .chart_options {
+#video_component #Viewed_clothes_graph > .chart_options {
   display: grid;
   gap: 5px;
   background-color: white;
@@ -32,7 +32,7 @@
   grid-template-rows: 50% 50%;
 }
 
-#images_component #Viewed_clothes_graph > .chart_options > .chart_category {
+#video_component #Viewed_clothes_graph > .chart_options > .chart_category {
   grid-area: 1 / 1 / 2 / 2;
   height: 90%;
   width: 90%;
@@ -40,17 +40,21 @@
   border-radius: 10px;
   border: none;
   font-size: 1.2em;
-  font-size: 1.2e;
   font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 0px 0px 25px #000c6659;
+  border: 3px solid #000c6659;
 }
 
-#images_component #Viewed_clothes_graph > .chart_options > .date_container {
+#video_component #Viewed_clothes_graph > .chart_options > .date_container {
   grid-area: 1 / 3 / 2 / 5;
   font-size: 1.2em;
   font-weight: bolder;
   border-radius: 10px;
   height: fit-content;
-  padding: 5px 15px;
+  padding: 0 15px;
   background-color: whitesmoke;
   border: none;
   margin-top: 5px;
@@ -60,7 +64,7 @@
   width: 90%;
 }
 
-#images_component
+#video_component
   > #Viewed_clothes_graph
   > .chart_options
   > .date_container
@@ -80,7 +84,7 @@
   align-items: center;
 }
 
-#images_component
+#video_component
   > #Viewed_clothes_graph
   > .chart_options
   .date_container
@@ -91,11 +95,11 @@
   border-radius: 10px;
   height: fit-content;
   padding: 10px 15px;
-  background-color: white;
+  background-color: whitesmoke;
   border: none;
 }
 
-#images_component
+#video_component
   > #Viewed_clothes_graph
   > .chart_options
   .date_container
@@ -106,11 +110,11 @@
   border-radius: 10px;
   height: fit-content;
   padding: 10px 15px;
-  background-color: white;
+  background-color: whitesmoke;
   border: none;
 }
 
-#images_component > #Viewed_clothes_graph > .chart_options > .graph_review {
+#video_component > #Viewed_clothes_graph > .chart_options > .graph_review {
   grid-area: 2 / 1 / 3 / 5;
   width: 90%;
   margin: auto;
@@ -123,37 +127,36 @@
   flex-direction: column;
 }
 
-#images_component > #Viewed_clothes_graph .chart_options > .chart_container {
+#video_component > #Viewed_clothes_graph .chart_options > .chart_container {
   flex-direction: column;
   display: flex;
   gap: 5px;
 }
 
-#images_component > #Viewed_clothes_graph .chart_diagram {
+#video_component > #Viewed_clothes_graph .chart_diagram {
   width: 100%;
   height: 80%;
   background-color: white;
   position: relative;
 }
 
-#images_component > #Viewed_clothes_graph .chart_diagram .chart_canvas {
+#video_component > #Viewed_clothes_graph .chart_diagram .chart_canvas {
   position: absolute !important;
   width: 100% !important;
   height: 100% !important;
 }
 
-#images_component #all_Images {
+#video_component #all_video {
   grid-row: 1 / 5;
   grid-column: 3 / 5;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  background-color: white;
   padding: 10px;
   gap: 5px;
 }
 
-#images_component #all_Images #table_header > input {
+#video_component #all_video #table_header > input {
   width: 98%;
   border-radius: 10px;
   font-size: 1.2em;
@@ -164,7 +167,7 @@
   border: none;
 }
 
-#images_component #all_Images #table_name {
+#video_component #all_video #table_name {
   width: 100%;
   text-align: center;
   display: block;
@@ -176,7 +179,7 @@
   grid-column: span 2;
 }
 
-#all_Images #table_header {
+#all_video #table_header {
   background-color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -186,41 +189,42 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-#all_Images #table_header > * {
+#all_video #table_header > * {
   flex: 1;
   font-size: 1.5em;
   text-align: center;
   font-weight: bolder;
 }
 
-#all_Images .table_body {
+#all_video .table_body {
   display: grid;
   height: 100%;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   overflow-y: auto;
   gap: 5px;
 }
 
-#all_Images .table_body > .image_content {
+#all_video .table_body > .video_content {
   height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#all_video .table_body > .video_content > video {
+  height: 100%;
   width: 100%;
   border-radius: 10px;
 }
 
-#all_Images .table_body > .image_content > img {
-  height: 100%;
-  border-radius: 10px;
-}
-
-#all_Images .table_body::-webkit-scrollbar {
+#all_video .table_body::-webkit-scrollbar {
   width: 0;
 }
 
-#images_component #local_image_storage {
+#video_component #local_video_storage {
   grid-row: 3 / 5;
   grid-column: 1 / 3;
-  background-color: white;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -228,7 +232,7 @@
   gap: 5px;
 }
 
-#images_component #local_image_storage #table_header > input {
+#video_component #local_video_storage #table_header > input {
   width: 98%;
   border-radius: 10px;
   font-size: 1.2em;
@@ -239,7 +243,7 @@
   border: none;
 }
 
-#images_component #local_image_storage #table_name {
+#video_component #local_video_storage #table_name {
   width: 100%;
   text-align: center;
   display: block;
@@ -251,7 +255,7 @@
   grid-column: span 2;
 }
 
-#local_image_storage #table_header {
+#local_video_storage #table_header {
   background-color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -261,33 +265,35 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-#local_image_storage #table_header > * {
+#local_video_storage #table_header > * {
   flex: 1;
   font-size: 1.5em;
   text-align: center;
   font-weight: bolder;
 }
 
-#local_image_storage .table_body {
+#local_video_storage .table_body {
   display: grid;
   height: 100%;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   overflow-y: auto;
   gap: 5px;
 }
 
-#local_image_storage .table_body > .image_content {
+#local_video_storage .table_body > .video_content {
   height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#local_video_storage .table_body > .video_content > video {
+  height: 100%;
   width: 100%;
   border-radius: 10px;
 }
 
-#local_image_storage .table_body > .image_content > img {
-  height: 100%;
-  border-radius: 10px;
-}
-
-#local_image_storage .table_body::-webkit-scrollbar {
+#local_video_storage .table_body::-webkit-scrollbar {
   width: 0;
 }
