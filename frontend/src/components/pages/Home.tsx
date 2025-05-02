@@ -7,13 +7,21 @@ import HomeBlogPage from "../Home Component/BlogHome";
 import WishlistComponent from "../Home Component/WishListPage";
 import OrderHistoryComponent from "../Home Component/HistoryPage";
 import MyAccountComponent from "../Home Component/AccountDetails";
+import { useAuth } from "@/context/AuthContext";
+import { useProductContext } from "@/context/ProductContext";
+import { fetchUserDetails } from "@/services/api";
+
 
 export default function ShoppingPageHome(): JSX.Element {
+  const { userId } = useAuth();   // ← grab userId from context
+  console.log("🚀 ~ ShoppingPageHome ~ userId:", userId)
+  const { cartProducts } = useProductContext()
   const [showAdminOption, setShowAdminOption] = useState(false);
   const [showCheckoutSummary, setShowCheckoutSummary] = useState(false);
 
   const [activeButton, setActiveButton] = useState('Home');
-
+  const [userDetails,setUserDetails] = useState<unknown>()
+  console.log("🚀 ~ ShoppingPageHome ~ userDetails:", userDetails)
 
   console.log("🚀 ~ ShoppingPageHome ~ showAdminOption:", showAdminOption)
 
@@ -54,6 +62,22 @@ export default function ShoppingPageHome(): JSX.Element {
         return <HomeAvailableProduct />;
     }
   }, [activeButton]); // <-- correct placement :contentReference[oaicite:2]{index=2}
+
+
+  useEffect(() => {
+    // you can now fetch user‐specific data:
+    if (userId) {
+      // e.g. api.get(`/orders?userId=${userId}`)
+      console.log("user id has been fetched", userId)
+      async function fetchAllDetails(userId : number) {
+        const result = fetchUserDetails({userId})
+        if (result) {
+          setUserDetails(result)
+        }
+      }
+      fetchAllDetails(userId)
+    }
+  }, [userId]);
 
   useEffect(() => {
     // If you need to perform side-effects when activeButton changes,
@@ -255,7 +279,7 @@ export default function ShoppingPageHome(): JSX.Element {
                   </svg>
                 </i>
                 <span id="checkout_count">
-                  5
+                  {cartProducts.length}
                 </span>
                 {/* User cart dropdown content can be added here */}
                 {showCheckoutSummary &&
